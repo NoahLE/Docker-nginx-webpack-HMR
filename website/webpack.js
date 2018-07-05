@@ -30,8 +30,6 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    // disableHostCheck: true,
-    // headers: { 'Access-Control-Allow-Origin': '*' },
     historyApiFallback: true,
     host: '0.0.0.0',
     hot: true,
@@ -89,15 +87,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      // template: "html/index.html",
       title: 'Sandbox application',
-      // appEntryID: 'my-app',
-      // filename: 'index.html',
-      // favicon: 'img/favicon.png',
+      template: 'html/index.html',
+      filename: 'index.html',
       minify: true,
-      // meta: '',
-      // hash: true,
-      // cache: true
+      appEntryID: 'app',
     }),
     new VueLoaderPlugin({
       transformAssetUrls: {
@@ -115,17 +109,3 @@ module.exports = {
     })
   ]
 };
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map';
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ])
-}
