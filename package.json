@@ -1,0 +1,32 @@
+{
+  "name": "hmr-sandbox",
+  "version": "1.0.0",
+  "description": "A sandbox application which uses webpack4, Docker, nginx, and hot module replacement",
+  "repository": "https://github.com/NoahLE/Docker-nginx-webpack-HMR",
+  "author": "NoahLE",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.2.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "lodash": "^4.17.10",
+    "mini-css-extract-plugin": "^0.4.1",
+    "url-loader": "^1.0.1",
+    "vue": "^2.5.16",
+    "vue-loader": "^15.2.4",
+    "vue-style-loader": "^4.1.0",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=development webpack --config website/webpack.config.js --progress --hide-modules",
+    "wds": "cross-env NODE_ENV=development webpack-dev-server --config website/webpack.config.js --progress --hide-modules"
+  }
+}

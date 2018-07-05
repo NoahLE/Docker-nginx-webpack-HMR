@@ -1,0 +1,27 @@
+version: '3.6'
+services:
+
+  portfolio-app:
+    container_name: 'sandbox-app'
+    image: 'sandbox-app'
+    build:
+      context: .
+      dockerfile: docker/app/Dockerfile
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./:/src:delegated
+    ports:
+      - '3000:3000'
+    command: [yarn, 'wds']
+
+  portfolio-nginx:
+    container_name: 'sandbox-nginx'
+    image: nginx:1.14.0
+    volumes:
+      - ./docker/nginx/:/etc/nginx/sites-enabled/
+    ports:
+      - '80:80'
+    depends_on:
+      - portfolio-app
+    command: [nginx, '-g', 'daemon off;']
