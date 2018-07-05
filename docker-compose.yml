@@ -9,6 +9,7 @@ services:
       dockerfile: docker/app/Dockerfile
     environment:
       - NODE_ENV=development
+      - VIRTUAL_HOST=local.sandbox.com
     volumes:
       - ./:/src:delegated
     ports:
@@ -17,11 +18,8 @@ services:
 
   sandbox-nginx:
     container_name: 'sandbox-nginx'
-    image: nginx:1.14.0
+    image: jwilder/nginx-proxy:alpine
     volumes:
-      - ./docker/nginx/:/etc/nginx/
+      - /var/run/docker.sock:/tmp/docker.sock:ro
     ports:
       - '80:80'
-    depends_on:
-      - sandbox-app
-    command: [nginx, '-g', 'daemon off;']

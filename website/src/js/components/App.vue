@@ -1,5 +1,5 @@
 <template>
-    <p>I am a sandbox app with HMR.</p>
+    <p>I am a sandbox app with HMR. yo</p>
 </template>
 
 <script>
