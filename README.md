@@ -16,3 +16,18 @@ Add `127.0.0.1 local.sandbox.com` to your `/private/etc/hosts` file. Feel free t
 
 1. Install the packages by running `yarn`
 2. Build the project for Docker with `docker-compose -f docker-compose.yml up`
+
+## Hot module replacement with server-side rendered templates
+
+If your templates are server-side rendered, you can point the browser to the url of the JS file.
+Make sure you have the `devServer` `inline: true` arguement in your webpack config.
+ 
+ ```html
+<html>
+    <!--...-->
+    <body>
+        <div id="app"></div>
+        <script src="http://localhost:3000/js/app.js"></script>
+    </body>
+</html>
+```
