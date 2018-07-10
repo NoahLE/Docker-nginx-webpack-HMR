@@ -15,7 +15,7 @@ Before starting, make sure you have the following installed:
 Add `127.0.0.1 local.sandbox.com` to your `/private/etc/hosts` file. Feel free to change this to whatever host you want.
 
 1. Install the packages by running `yarn`
-2. Build the project for Docker with `docker-compose -f docker-compose.yml up`
+2. Build the project for Docker with `docker-compose -f docker-compose.yml up --build`
 
 ## Hot module replacement with server-side rendered templates
 
